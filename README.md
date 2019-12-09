@@ -2,7 +2,7 @@
 
 ## About
 
-**All the awesome wallpapers of the Verge for [Muzei](http://get.muzei.co/).**  
+**All the awesome [wallpapers of The Verge](https://www.theverge.com/pages/wallpapers/) for [Muzei](http://get.muzei.co/).**  
 This is a plugin for the live wallpaper app _Muzei_ by Roman Nurik. It needs _Muzei_ to be used.
 
 ## Screenshots
