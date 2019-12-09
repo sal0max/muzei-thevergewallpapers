@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   package="de.salomax.muzei.thevergewallpapers">
+
+   <uses-permission android:name="android.permission.INTERNET" />
+
+   <!-- Required by RemoteMuzeiArtSource -->
+   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+   <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+   <application
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      tools:ignore="GoogleAppIndexingWarning">
+
+      <provider
+         android:name="de.salomax.muzei.thevergewallpapers.TheVergeArtProvider"
+         android:authorities="${applicationId}"
+         android:description="@string/source_description"
+         android:exported="true"
+         android:label="@string/source_name"
+         android:permission="com.google.android.apps.muzei.api.ACCESS_PROVIDER">
+         <intent-filter>
+            <action android:name="com.google.android.apps.muzei.api.MuzeiArtProvider" />
+         </intent-filter>
+         <meta-data
+            android:name="settingsActivity"
+            android:value="de.salomax.muzei.thevergewallpapers.SettingsActivity" />
+      </provider>
+
+      <activity
+         android:name=".SettingsActivity"
+         android:exported="true"
+         android:icon="@mipmap/ic_launcher"
+         android:label="@string/prefs_title"
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:theme="@style/Theme.Muzei" />
+   </application>
+
+</manifest>

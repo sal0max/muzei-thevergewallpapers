@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <color name="vergePink">#e2127a</color>
+   <color name="vergeBlue">#393092</color>
+
+   <color name="iconForeground">#fff</color>
+   <color name="iconBackground">@color/vergePink</color>
+</resources>

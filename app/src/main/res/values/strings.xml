@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+   <!-- misc -->
+   <string name="app_name">The\u00A0Verge wallpapers for Muzei</string>
+   <string name="source_name">The\u00A0Verge wallpapers</string>
+   <string name="source_description">Awesome wallpapers by The\u00A0Verge</string>
+
+   <!-- preferences -->
+   <string name="prefs_title">@string/source_name</string>
+   <string name="prefs_header_about">About</string>
+
+   <string name="pref_about_key" translatable="false">pref_about</string>
+   <string name="pref_about_summary">Version %1$s
+      \n© %2$d Maximilian Salomon
+      \n
+      \n<b>All wallpapers are property of The\u00A0Verge</b>.
+      \nThis plugin for Muzei isn\'t in any way related to The\u00A0Verge or Vox\u00A0Media. It solely provides their awesome wallpapers in a handy way.
+      \n© %2$d Vox\u00A0Media, LLC
+   </string>
+
+   <string name="pref_link_key" translatable="false">pref_link</string>
+   <string name="pref_link_title">Visit The\u00A0Verge</string>
+   <string name="pref_link_summary" translatable="false">www.theverge.com/pages/wallpapers/</string>
+   <string name="pref_link_link" translatable="false">https://www.theverge.com/pages/wallpapers/</string>
+
+   <!-- share artwork -->
+   <string name="share_artwork_title">Share this photo</string>
+   <string name="share_artwork_message">My current Android wallpaper is \'%1$s\' by theVerge.com. #Muzei\n\n%2$s</string>
+
+</resources>

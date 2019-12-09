@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+   <style name="Theme.Muzei" parent="Theme.AppCompat.DayNight">
+      <item name="actionBarStyle">@style/Widget.Muzei.ActionBar</item>
+      <item name="colorAccent">@color/vergePink</item>
+      <item name="colorPrimary">?android:color</item>
+      <item name="android:statusBarColor">?android:colorBackground</item>
+   </style>
+
+   <style name="Widget.Muzei.ActionBar" parent="Widget.AppCompat.ActionBar">
+      <item name="background">@null</item>
+      <item name="displayOptions">homeAsUp|showTitle</item>
+   </style>
+
+</resources>

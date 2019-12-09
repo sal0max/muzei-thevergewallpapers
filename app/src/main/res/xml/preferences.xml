@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <PreferenceCategory android:title="@string/prefs_header_about">
+      <Preference
+         android:key="@string/pref_about_key"
+         android:persistent="false"
+         android:selectable="false"
+         android:summary="@string/pref_about_summary"
+         android:title="@string/app_name" />
+      <Preference
+         android:icon="@drawable/ic_open_in_browser_24dp"
+         android:key="@string/pref_link_key"
+         android:summary="@string/pref_link_summary"
+         android:title="@string/pref_link_title" />
+   </PreferenceCategory>
+
+</PreferenceScreen>
