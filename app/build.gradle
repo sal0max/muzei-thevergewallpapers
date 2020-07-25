@@ -65,7 +65,7 @@ android {
    }
 
    lintOptions {
-      disable 'InvalidPackage'
+      disable 'InvalidPackage', 'AllowBackup'
    }
 
    android {
