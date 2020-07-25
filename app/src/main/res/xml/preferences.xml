@@ -10,7 +10,7 @@
          android:summary="@string/pref_about_summary"
          android:title="@string/app_name" />
       <Preference
-         android:icon="@drawable/ic_open_in_browser_24dp"
+         android:icon="@drawable/ic_open_in_browser_24"
          android:key="@string/pref_link_key"
          android:summary="@string/pref_link_summary"
          android:title="@string/pref_link_title" />
