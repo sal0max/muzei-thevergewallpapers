@@ -1,5 +1,7 @@
 # The Verge wallpapers for Muzei
 
+[<img alt="Get it on Google Play" height="90" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">](https://play.google.com/store/apps/details?id=de.salomax.muzei.thevergewallpapers)
+
 ## About
 
 **All the awesome [wallpapers of The Verge](https://www.theverge.com/pages/wallpapers/) for [Muzei](http://get.muzei.co/).**  
