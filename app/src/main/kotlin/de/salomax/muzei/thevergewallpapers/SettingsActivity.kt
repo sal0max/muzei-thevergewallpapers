@@ -35,7 +35,7 @@ class SettingsActivity : AppCompatActivity() {
          // show correct version name & copyright year
          findPreference<Preference>(getText(R.string.pref_about_key))?.summary = getString(
                R.string.pref_about_summary,
-               activity!!.packageManager.getPackageInfo(activity!!.packageName, 0).versionName,
+               requireActivity().packageManager.getPackageInfo(requireActivity().packageName, 0).versionName,
                Calendar.getInstance().get(Calendar.YEAR))
          // open browser
          findPreference<Preference>(getText(R.string.pref_link_key))?.setOnPreferenceClickListener {
