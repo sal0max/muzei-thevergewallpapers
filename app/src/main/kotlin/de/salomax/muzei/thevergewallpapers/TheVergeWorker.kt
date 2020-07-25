@@ -39,13 +39,13 @@ class TheVergeWorker(context: Context, workerParams: WorkerParameters) : Worker(
       val providerClient = ProviderContract.getProviderClient(applicationContext, TheVergeArtProvider::class.java)
       photos.asReversed()  // reverse: first in list is newest, so add last
             .map { photo ->
-               Artwork().apply {
-                  token = photo.url
-                  title = photo.title
-                  byline = photo.dimensions
-                  persistentUri = photo.url.toUri()
+               Artwork(
+                  token = photo.url,
+                  title = photo.title,
+                  byline = photo.dimensions,
+                  persistentUri = photo.url.toUri(),
                   webUri = "https://www.theverge.com/pages/wallpapers".toUri()
-               }
+               )
             }
             .forEach {
                providerClient.addArtwork(it)
