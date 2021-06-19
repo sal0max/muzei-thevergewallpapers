@@ -52,7 +52,7 @@ internal interface TheVergeService {
 
       companion object {
          val Factory: Converter.Factory = object : Converter.Factory() {
-            override fun responseBodyConverter(type: Type, annotations: Array<Annotation?>?, retrofit: Retrofit?): Converter<ResponseBody?, *>? {
+            override fun responseBodyConverter(type: Type, annotations: Array<Annotation?>?, retrofit: Retrofit?): Converter<ResponseBody?, *> {
                return TheVergeWallpaperAdapter()
             }
          }
