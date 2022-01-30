@@ -1,33 +1,31 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-   ext.kotlin_version = '1.5.10'
+   ext.kotlin_version = '1.6.10'
    repositories {
       google()
       mavenCentral()
    }
    dependencies {
-      classpath 'com.android.tools.build:gradle:4.2.1'
+      classpath 'com.android.tools.build:gradle:7.1.0'
       classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
    }
 }
 
 // dependency-update-checker: gradle dependencyUpdates
 plugins {
-   id "com.github.ben-manes.versions" version "0.39.0"
+   id "com.github.ben-manes.versions" version "0.41.0"
 }
 
 // only check for stable versions
-dependencyUpdates.resolutionStrategy {
-   componentSelection { rules ->
-      rules.all { ComponentSelection selection ->
-         boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm', 'preview'].any { qualifier ->
-            selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
-         }
-         if (rejected) {
-            selection.reject('Release candidate')
-         }
-      }
+dependencyUpdates.configure {
+   def isNonStable = { String version ->
+      def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { s -> version.toUpperCase().contains(s) }
+      def regex = /^[0-9,.v-]+(-r)?$/
+      return !stableKeyword && !(version ==~ regex)
+   }
+   rejectVersionIf {
+      isNonStable(it.candidate.version)
    }
 }
 

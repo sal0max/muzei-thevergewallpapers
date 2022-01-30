@@ -3,22 +3,22 @@ apply plugin: 'kotlin-android'
 
 dependencies {
    // kotlin
-   implementation 'androidx.core:core-ktx:1.5.0'
+   implementation 'androidx.core:core-ktx:1.7.0'
    // muzei
-   implementation 'com.google.android.apps.muzei:muzei-api:3.4.0'
+   implementation 'com.google.android.apps.muzei:muzei-api:3.4.1'
    // retrofit
    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-   implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
-   implementation 'org.jsoup:jsoup:1.13.1'
+   implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+   implementation 'org.jsoup:jsoup:1.14.3'
    // misc
-   implementation 'android.arch.work:work-runtime-ktx:1.0.1'
-   implementation 'androidx.preference:preference-ktx:1.1.1'
+   implementation 'androidx.work:work-runtime-ktx:2.7.1'
+   implementation 'androidx.preference:preference-ktx:1.2.0'
    // test
    testImplementation 'junit:junit:4.13.2'
 }
 
 android {
-   compileSdkVersion 30
+   compileSdkVersion 32
    buildToolsVersion '30.0.3'
 
    compileOptions {
@@ -32,11 +32,11 @@ android {
    defaultConfig {
       applicationId 'de.salomax.muzei.thevergewallpapers'
       minSdkVersion 21
-      targetSdkVersion 30
+      targetSdkVersion 32
       // SemVer
       def major = 1
       def minor = 0
-      def patch = 2
+      def patch = 3
       versionCode = (major * 10000) + (minor * 100) + patch
       versionName = "$major ($major.$minor.$patch)"
       //

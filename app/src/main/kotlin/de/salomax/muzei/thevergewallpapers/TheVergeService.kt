@@ -59,8 +59,9 @@ internal interface TheVergeService {
       }
 
       override fun convert(value: ResponseBody?): List<Wallpaper> {
-         val document: Document = Jsoup.parse(value?.string())
-         return document.select("a[href~=\\.(png|jpg)]")
+         if (value != null) {
+            val document: Document = Jsoup.parse(value.string())
+            return document.select("a[href~=\\.(png|jpg)]")
                .filter { element ->
                   element.text().contains("Portrait", true)
                         || element.text().contains("Landscape", true)
@@ -69,18 +70,21 @@ internal interface TheVergeService {
                   val url = element.attr("href")
                   val dimensions = Regex("\\d+ x \\d+").find(element.text())?.value
                   val fileName = url
-                        .substring(url.lastIndexOf("/") + 1)
-                        .replace("_", " ", true)
-                        .replace(".0", "")
-                        .replace(".1", "", true)
-                        .replace(".png", "", true)
-                        .replace(".jpg", "", true)
-                        .replace("wallpaper", "", true)
-                        .replace("the", "", true)
-                        .replace("verge", "", true)
-                        .trim()
+                     .substring(url.lastIndexOf("/") + 1)
+                     .replace("_", " ", true)
+                     .replace(".0", "")
+                     .replace(".1", "", true)
+                     .replace(".png", "", true)
+                     .replace(".jpg", "", true)
+                     .replace("wallpaper", "", true)
+                     .replace("the", "", true)
+                     .replace("verge", "", true)
+                     .trim()
                   Wallpaper(url, fileName, dimensions)
                }
+         }
+         else
+            return emptyList()
       }
    }
 
