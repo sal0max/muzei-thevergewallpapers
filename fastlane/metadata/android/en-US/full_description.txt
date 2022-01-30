@@ -1,0 +1,2 @@
+All the awesome wallpapers of The Verge for Muzei.
+This is a plugin for the live wallpaper app Muzei by Roman Nurik. It needs Muzei to be used.
