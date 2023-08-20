@@ -16,7 +16,7 @@ class TheVergeArtProvider : MuzeiArtProvider() {
    }
 
    override fun onLoadRequested(initial: Boolean) {
-      TheVergeWorker.enqueueLoad()
+      TheVergeWorker.enqueueLoad(context!!)
    }
 
    /* This is the new API for Muzei 3.4+ that works on all API levels */
@@ -40,13 +40,13 @@ class TheVergeArtProvider : MuzeiArtProvider() {
    }
 
    /* kept for backward compatibility with Muzei 3.3 */
-   @Suppress("OverridingDeprecatedMember", "DEPRECATION")
+   @Suppress("OVERRIDE_DEPRECATION", "DEPRECATION")
    override fun getCommands(artwork: Artwork) = listOf(
          com.google.android.apps.muzei.api.UserCommand(USER_COMMAND_ID_SHARE, context?.getString(R.string.share_artwork_title))
    )
 
    /* kept for backward compatibility with Muzei 3.3 */
-   @Suppress("OverridingDeprecatedMember")
+   @Suppress("OVERRIDE_DEPRECATION")
    override fun onCommand(artwork: Artwork, id: Int) {
       val context = context ?: return
       when (id) {

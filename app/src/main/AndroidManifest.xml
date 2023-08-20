@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:tools="http://schemas.android.com/tools"
-   package="de.salomax.muzei.thevergewallpapers">
+   xmlns:tools="http://schemas.android.com/tools">
 
    <uses-permission android:name="android.permission.INTERNET" />
 
@@ -33,7 +32,7 @@
       </provider>
 
       <activity
-         android:name=".SettingsActivity"
+         android:name="de.salomax.muzei.thevergewallpapers.SettingsActivity"
          android:exported="true"
          android:icon="@mipmap/ic_launcher"
          android:label="@string/prefs_title"

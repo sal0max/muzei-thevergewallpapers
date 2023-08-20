@@ -1,6 +1,9 @@
 package de.salomax.muzei.thevergewallpapers
 
 import android.content.Intent
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -35,7 +38,7 @@ class SettingsActivity : AppCompatActivity() {
          // show correct version name & copyright year
          findPreference<Preference>(getText(R.string.pref_about_key))?.summary = getString(
                R.string.pref_about_summary,
-               requireActivity().packageManager.getPackageInfo(requireActivity().packageName, 0).versionName,
+               requireActivity().packageManager.getPackageInfoCompat(requireActivity().packageName).versionName,
                Calendar.getInstance().get(Calendar.YEAR))
          // open browser
          findPreference<Preference>(getText(R.string.pref_link_key))?.setOnPreferenceClickListener {
@@ -45,6 +48,13 @@ class SettingsActivity : AppCompatActivity() {
             true
          }
       }
+
+      private fun PackageManager.getPackageInfoCompat(packageName: String, flags: Int = 0): PackageInfo =
+         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(flags.toLong()))
+         } else {
+            @Suppress("DEPRECATION") getPackageInfo(packageName, flags)
+         }
    }
 
    override fun onOptionsItemSelected(item: MenuItem): Boolean {

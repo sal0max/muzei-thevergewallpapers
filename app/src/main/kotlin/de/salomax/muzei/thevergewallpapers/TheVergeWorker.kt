@@ -11,9 +11,9 @@ import java.io.IOException
 class TheVergeWorker(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
 
    companion object {
-      internal fun enqueueLoad() {
+      internal fun enqueueLoad(context: Context) {
          WorkManager
-               .getInstance()
+               .getInstance(context)
                .enqueue(OneTimeWorkRequestBuilder<TheVergeWorker>()
                      .setConstraints(Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build())
                      .build())
@@ -30,7 +30,7 @@ class TheVergeWorker(context: Context, workerParams: WorkerParameters) : Worker(
       }
 
       // check if successful
-      if (photos == null || photos.isEmpty()) {
+      if (photos.isNullOrEmpty()) {
          Log.w(javaClass.simpleName, "Failed to find any photos.")
          return Result.failure()
       }
