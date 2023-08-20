@@ -19,8 +19,8 @@ android {
       minSdk = 21
       targetSdk = 33
       // SemVer
-      versionName = "1.0.3"
-      versionCode = 10003
+      versionName = "1.0.4"
+      versionCode = 10004
       archivesName.set("$applicationId-v$versionCode")
       //
       vectorDrawables.useSupportLibrary = true

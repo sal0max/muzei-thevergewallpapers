@@ -1,0 +1,1 @@
+- Increase compatibility with Android 13.
