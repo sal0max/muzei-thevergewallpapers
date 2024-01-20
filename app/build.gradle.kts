@@ -12,12 +12,12 @@ plugins {
 
 android {
    namespace = "de.salomax.muzei.thevergewallpapers"
-   compileSdk = 33
+   compileSdk = 34
 
    defaultConfig {
       applicationId = namespace
       minSdk = 21
-      targetSdk = 33
+      targetSdk = 34
       // SemVer
       versionName = "1.0.4"
       versionCode = 10004
@@ -76,15 +76,15 @@ android {
 
 dependencies {
    // kotlin
-   implementation("androidx.core:core-ktx:1.10.1")
+   implementation("androidx.core:core-ktx:1.12.0")
    // muzei
    implementation("com.google.android.apps.muzei:muzei-api:3.4.1")
    // retrofit
    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-   implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
-   implementation("org.jsoup:jsoup:1.16.1")
+   implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+   implementation("org.jsoup:jsoup:1.17.2")
    // misc
-   implementation("androidx.work:work-runtime-ktx:2.8.1")
+   implementation("androidx.work:work-runtime-ktx:2.9.0")
    implementation("androidx.preference:preference-ktx:1.2.1")
    // test
    testImplementation("junit:junit:4.13.2")

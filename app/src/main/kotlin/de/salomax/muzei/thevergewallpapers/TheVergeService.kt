@@ -48,43 +48,43 @@ internal interface TheVergeService {
 //         val orientation: Int, // 0=portrait 1=landscape
          val dimensions: String?)
 
-   class TheVergeWallpaperAdapter : Converter<ResponseBody?, List<Wallpaper>?> {
+   class TheVergeWallpaperAdapter : Converter<ResponseBody, List<Wallpaper>> {
 
       companion object {
          val Factory: Converter.Factory = object : Converter.Factory() {
-            override fun responseBodyConverter(type: Type, annotations: Array<Annotation?>?, retrofit: Retrofit?): Converter<ResponseBody?, *> {
+            override fun responseBodyConverter(
+               type: Type,
+               annotations: Array<out Annotation>,
+               retrofit: Retrofit
+            ): Converter<ResponseBody, *> {
                return TheVergeWallpaperAdapter()
             }
          }
       }
 
-      override fun convert(value: ResponseBody?): List<Wallpaper> {
-         if (value != null) {
-            val document: Document = Jsoup.parse(value.string())
-            return document.select("a[href~=\\.(png|jpg)]")
-               .filter { element ->
-                  element.text().contains("Portrait", true)
-                        || element.text().contains("Landscape", true)
-                        || element.text().contains("Square", true)
-               }.map { element ->
-                  val url = element.attr("href")
-                  val dimensions = Regex("\\d+ x \\d+").find(element.text())?.value
-                  val fileName = url
-                     .substring(url.lastIndexOf("/") + 1)
-                     .replace("_", " ", true)
-                     .replace(".0", "")
-                     .replace(".1", "", true)
-                     .replace(".png", "", true)
-                     .replace(".jpg", "", true)
-                     .replace("wallpaper", "", true)
-                     .replace("the", "", true)
-                     .replace("verge", "", true)
-                     .trim()
-                  Wallpaper(url, fileName, dimensions)
-               }
-         }
-         else
-            return emptyList()
+      override fun convert(value: ResponseBody): List<Wallpaper> {
+         val document: Document = Jsoup.parse(value.string())
+         return document.select("a[href~=\\.(png|jpg)]")
+            .filter { element ->
+               element.text().contains("Portrait", true)
+                     || element.text().contains("Landscape", true)
+                     || element.text().contains("Square", true)
+            }.map { element ->
+               val url = element.attr("href")
+               val dimensions = Regex("\\d+ x \\d+").find(element.text())?.value
+               val fileName = url
+                  .substring(url.lastIndexOf("/") + 1)
+                  .replace("_", " ", true)
+                  .replace(".0", "")
+                  .replace(".1", "", true)
+                  .replace(".png", "", true)
+                  .replace(".jpg", "", true)
+                  .replace("wallpaper", "", true)
+                  .replace("the", "", true)
+                  .replace("verge", "", true)
+                  .trim()
+               Wallpaper(url, fileName, dimensions)
+            }
       }
    }
 
